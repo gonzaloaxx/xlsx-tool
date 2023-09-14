@@ -30,7 +30,7 @@ class MainWindow(Tk):
         self.geometry('%sx%s' % (win_width, win_height))
         self.resizable(width=True, height=True)
 
-        self.icon = PhotoImage(data=b64decode(self.parser.get('tk', 'icon')))
+        self.icon = PhotoImage(data=b64decode(self.parser.get('tk', 'png-icon')))
         self.iconphoto(True, self.icon)
 
         # cabecera de aplicacion
@@ -47,7 +47,7 @@ class MainWindow(Tk):
 
         # seccion de busquedas
         self.div_search = Frame(self, bg='#FFF')
-        self.div_search.pack(fill='both', padx=100, pady=25)
+        self.div_search.pack(fill='both', padx=100, pady=20, ipady=2)
 
         ## caja de busquedas
         self.div_search_entry = Frame(self.div_search)
@@ -58,7 +58,7 @@ class MainWindow(Tk):
 
         self.search_entry = Entry(self.div_search_entry)
         self.search_entry.config(
-            border=0, borderwidth=0,
+            border=1, borderwidth=1,
             background=self.search_entry.master['background'],
             foreground='#2C2C2C',
             selectbackground='#2C2C2C',
@@ -73,11 +73,11 @@ class MainWindow(Tk):
         self.div_search_button.config(
             bg=self.div_search_button.master['background']
         )
-        self.div_search_button.pack(side='right')
+        self.div_search_button.pack(side='right', fill='both')
 
         self.bt_search = Button(self.div_search_button)
         self.bt_search.configure(
-            border=0, borderwidth=0, width=8,
+            border=0, borderwidth=0, width=10,
             background='#666666',
             foreground='#FFF',
             activebackground='#666666',
@@ -85,11 +85,11 @@ class MainWindow(Tk):
             highlightbackground='#666666',
             text='Buscar'
         )
-        self.bt_search.pack(side='left', padx=1)
+        self.bt_search.pack(side='left', padx=1, fill='both', expand='yes')
 
         self.bt_open = Button(self.div_search_button)
         self.bt_open.configure(
-            border=0, borderwidth=0, width=8,
+            border=0, borderwidth=0, width=10,
             background='#666666',
             foreground='#FFF',
             activebackground='#666666',
@@ -97,7 +97,7 @@ class MainWindow(Tk):
             highlightbackground='#666666',
             text='AbirXLSX'
         )
-        self.bt_open.pack(side='right', padx=1)
+        self.bt_open.pack(side='right', padx=1, fill='both', expand='yes')
 
 
         # resultados de busquedas
