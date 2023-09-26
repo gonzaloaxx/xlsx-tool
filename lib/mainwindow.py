@@ -87,6 +87,17 @@ class MainWindow(Tk):
         )
         self.bt_search.pack(side='left', padx=1, fill='both', expand='yes')
 
+        self.bt_add = Button(self.div_search_button)
+        self.bt_add.image = PhotoImage(data=b64decode(self.parser.get('tk', 'bt-plus')))
+        self.bt_add.configure(
+            border=0, borderwidth=0,
+            image=self.bt_add.image,
+            background=self.bt_add.master['background'],
+            activebackground=self.bt_add.master['background'],
+            highlightbackground=self.bt_add.master['background']
+        )
+        self.bt_add.pack(side='right', padx=5)
+
         self.bt_open = Button(self.div_search_button)
         self.bt_open.configure(
             border=0, borderwidth=0, width=10,

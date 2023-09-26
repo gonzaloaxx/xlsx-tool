@@ -14,7 +14,8 @@ from lib.coreutils import search_values_in_csv
 class Main:
     def __init__(self) -> None:
         self.tkapplication = TkApplication()
-
+        self.localfilename = '.application'
+        self.openfilenames = []
 
     def openfiles(self, event=None):
         # actualizar mensajes de sistema
@@ -25,20 +26,51 @@ class Main:
         filenames = get_openfilenames()
         if len(filenames) and askme_loadfiles():
             try:
-                count = create_dataframe(filenames)
+                count = create_dataframe(filenames, self.localfilename)
             except:
                 message = 'Ocurrio un error al cargar los archivos'
                 self.tkapplication.status['text'] = message
                 self.tkapplication.status['background'] = '#f25252'
             else:
+                self.openfilenames = [x for x in filenames]
+                
                 message = 'Se cargaron correctamente %s archivos' % count
                 self.tkapplication.status['text'] = message
                 self.tkapplication.status['background'] = '#444444'
+
         else:
             message = 'Error en la carga de archivos'
             self.tkapplication.status['text'] = message
             self.tkapplication.status['background'] = '#f25252'
 
+
+    def add_openfile(self, event=None):
+        message = 'Cargar archivos Excel'
+        self.tkapplication.status['text'] = message
+        self.tkapplication.status['background'] = '#444444'
+        
+        filenames = get_openfilenames()
+    
+        if len(filenames) and askme_loadfiles():
+            for x in filenames: self.openfilenames.append(x)
+        
+            try:
+                count = create_dataframe(set(self.openfilenames), self.localfilename)
+            except:
+                message = 'Ocurrio un error al cargar los archivos'
+                self.tkapplication.status['text'] = message
+                self.tkapplication.status['background'] = '#f25252'
+            else:
+                self.openfilenames = [x for x in filenames]
+                
+                message = 'Se cargaron correctamente %s archivos' % count
+                self.tkapplication.status['text'] = message
+                self.tkapplication.status['background'] = '#444444'
+
+        else:
+            message = 'Error en la carga de archivos'
+            self.tkapplication.status['text'] = message
+            self.tkapplication.status['background'] = '#f25252'
 
 
     def search(self, event=None):
@@ -72,6 +104,7 @@ class Main:
     def builder(self):
         self.tkapplication.bt_open['command'] = self.openfiles
         self.tkapplication.bt_search['command'] = self.search
+        self.tkapplication.bt_add['command'] = self.add_openfile
         self.tkapplication.mainloop()
 
 if __name__ == '__main__':

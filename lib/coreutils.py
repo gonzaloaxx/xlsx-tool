@@ -14,7 +14,7 @@ def is_excel_file(filepath:str) ->bool:
 
 
 
-def create_dataframe(excel_files:iter)->int:
+def create_dataframe(excel_files:iter, output_filename:str)->int:
     # Si el archivo no existe, crear un DataFrame vacío
     df_csv = DataFrame()
 
