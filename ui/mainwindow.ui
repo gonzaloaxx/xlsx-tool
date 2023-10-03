@@ -1,0 +1,664 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>750</width>
+    <height>500</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>700</width>
+    <height>500</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>XLSXTool</string>
+  </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../app.png</normaloff>../app.png</iconset>
+  </property>
+  <property name="layoutDirection">
+   <enum>Qt::LeftToRight</enum>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">background-color: rgb(255, 255, 255);</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="2" column="0">
+     <widget class="QFrame" name="contentFrame">
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QGridLayout" name="gridLayout_3">
+       <item row="1" column="1">
+        <widget class="QListWidget" name="notMatchList">
+         <property name="maximumSize">
+          <size>
+           <width>120</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(49, 49, 49);
+background-color: rgb(255, 255, 255);
+selection-color: rgb(255, 255, 255);
+</string>
+         </property>
+         <property name="selectionMode">
+          <enum>QAbstractItemView::ExtendedSelection</enum>
+         </property>
+         <item>
+          <property name="text">
+           <string>Nuevo elemento</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Nuevo elemento</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Nuevo elemento</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Nuevo elemento</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Nuevo elemento</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Nuevo elemento</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Nuevo elemento</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Nuevo elemento</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Nuevo elemento</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Nuevo elemento</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Nuevo elemento</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Nuevo elemento</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Nuevo elemento</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Nuevo elemento</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Nuevo elemento</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Nuevo elemento</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Nuevo elemento</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Nuevo elemento</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Nuevo elemento</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Nuevo elemento</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="0" column="0">
+        <widget class="QLabel" name="matchesLabel">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>22</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(49, 49, 49);</string>
+         </property>
+         <property name="text">
+          <string>Resultados Encontrados</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="margin">
+          <number>0</number>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLabel" name="notMatchesLabel">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>22</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>120</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(49, 49, 49);</string>
+         </property>
+         <property name="text">
+          <string>No Encontrados</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="margin">
+          <number>0</number>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QTableWidget" name="matchesTable">
+         <property name="styleSheet">
+          <string notr="true">color: rgb(49, 49, 49);
+background-color: rgb(255, 255, 255);
+selection-color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="alternatingRowColors">
+          <bool>true</bool>
+         </property>
+         <attribute name="horizontalHeaderHighlightSections">
+          <bool>false</bool>
+         </attribute>
+         <attribute name="verticalHeaderHighlightSections">
+          <bool>false</bool>
+         </attribute>
+         <row>
+          <property name="text">
+           <string>Nueva fila</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>Nueva fila</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>Nueva fila</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>Nueva fila</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>Nueva fila</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>Nueva fila</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>Nueva fila</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>Nueva fila</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>Nueva fila</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>Nueva fila</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>Nueva fila</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>Nueva fila</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>Nueva fila</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>Nueva fila</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>Nueva fila</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>Nueva fila</string>
+          </property>
+         </row>
+         <row>
+          <property name="text">
+           <string>Nueva fila</string>
+          </property>
+         </row>
+         <column>
+          <property name="text">
+           <string>Nueva columna</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Nueva columna</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Nueva columna</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Nueva columna</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Nueva columna</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Nueva columna</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Nueva columna</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Nueva columna</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Nueva columna</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Nueva columna</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Nueva columna</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Nueva columna</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Nueva columna</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Nueva columna</string>
+          </property>
+         </column>
+         <column>
+          <property name="text">
+           <string>Nueva columna</string>
+          </property>
+         </column>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="0" column="0">
+     <widget class="QFrame" name="headerFrame">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>45</height>
+       </size>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout_2">
+       <item>
+        <widget class="QLabel" name="headerLabel">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>40</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(49, 49, 49);
+color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="text">
+          <string>Herramienta para busquedas en datasets XLSX</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+         <property name="margin">
+          <number>-1</number>
+         </property>
+         <property name="indent">
+          <number>-1</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="1" column="0">
+     <widget class="QFrame" name="searchFrame">
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>75</height>
+       </size>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <widget class="QLineEdit" name="searchEntry">
+         <property name="toolTip">
+          <string/>
+         </property>
+         <property name="whatsThis">
+          <string/>
+         </property>
+         <property name="layoutDirection">
+          <enum>Qt::LeftToRight</enum>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">color: rgb(49, 49, 49);
+background-color: rgb(255, 255, 255);
+selection-color: rgb(255, 255, 255);
+</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+         <property name="placeholderText">
+          <string>Puede pegar un segmento de una columna de la hoja de cálculo</string>
+         </property>
+         <property name="clearButtonEnabled">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QPushButton" name="btSearch">
+         <property name="minimumSize">
+          <size>
+           <width>120</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>120</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Buscar</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="0">
+        <widget class="QComboBox" name="selectFile">
+         <property name="styleSheet">
+          <string notr="true">color: rgb(49, 49, 49);
+selection-color: rgb(49, 49, 49);</string>
+         </property>
+         <item>
+          <property name="text">
+           <string>Nuevo elemento1</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Nuevo elemento2</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Nuevo elemento3</string>
+          </property>
+         </item>
+         <item>
+          <property name="text">
+           <string>Nuevo elemento4</string>
+          </property>
+         </item>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QToolButton" name="btOpenFile">
+         <property name="minimumSize">
+          <size>
+           <width>120</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>120</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+    <item row="3" column="0">
+     <widget class="QFrame" name="statusFrame">
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>16777215</width>
+        <height>20</height>
+       </size>
+      </property>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="leftMargin">
+        <number>10</number>
+       </property>
+       <property name="topMargin">
+        <number>0</number>
+       </property>
+       <property name="rightMargin">
+        <number>10</number>
+       </property>
+       <property name="bottomMargin">
+        <number>0</number>
+       </property>
+       <item>
+        <widget class="QLabel" name="statusLabel">
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QProgressBar" name="progressBar">
+         <property name="minimumSize">
+          <size>
+           <width>120</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>120</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true">background-color: rgb(255, 255, 255);
+selection-background-color: rgb(49, 49, 49);
+color: rgb(49, 49, 49);
+selection-color: rgb(255, 255, 255);</string>
+         </property>
+         <property name="value">
+          <number>80</number>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <tabstops>
+  <tabstop>searchEntry</tabstop>
+  <tabstop>btSearch</tabstop>
+  <tabstop>selectFile</tabstop>
+  <tabstop>btOpenFile</tabstop>
+  <tabstop>notMatchList</tabstop>
+ </tabstops>
+ <resources/>
+ <connections/>
+</ui>

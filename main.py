@@ -1,112 +1,121 @@
 #!usr/bin/python3
 #-*- coding: utf-8 -*-
 
+from lib.qtApplication import QtApplication
+from lib.popups import getOpenFiles
+from lib.coreutils import createDataFrame
+from lib.coreutils import listCsvFiles
+from lib.coreutils import getValuesFromString
+from lib.coreutils import searchValuesOnCsv
+from lib.coreutils import getCsvHeaders
 
-from lib.tkapplication import TkApplication
-from lib.tkpopups import get_openfilenames
-from lib.tkpopups import askme_loadfiles
-from lib.coreutils import create_dataframe
-from lib.coreutils import get_values_from_string
-from lib.coreutils import search_values_in_csv
 
+class Main():
 
-
-class Main:
     def __init__(self) -> None:
-        self.tkapplication = TkApplication()
-        self.localfilename = '.application'
-        self.openfilenames = []
-
-    def openfiles(self, event=None):
-        # actualizar mensajes de sistema
-        message = 'Cargar archivos Excel'
-        self.tkapplication.status['text'] = message
-        self.tkapplication.status['background'] = '#444444'
-
-        filenames = get_openfilenames()
-        if len(filenames) and askme_loadfiles():
-            try:
-                count = create_dataframe(filenames, self.localfilename)
-            except:
-                message = 'Ocurrio un error al cargar los archivos'
-                self.tkapplication.status['text'] = message
-                self.tkapplication.status['background'] = '#f25252'
-            else:
-                self.openfilenames = [x for x in filenames]
-                
-                message = 'Se cargaron correctamente %s archivos' % count
-                self.tkapplication.status['text'] = message
-                self.tkapplication.status['background'] = '#444444'
-
-        else:
-            message = 'Error en la carga de archivos'
-            self.tkapplication.status['text'] = message
-            self.tkapplication.status['background'] = '#f25252'
-
-
-    def add_openfile(self, event=None):
-        message = 'Cargar archivos Excel'
-        self.tkapplication.status['text'] = message
-        self.tkapplication.status['background'] = '#444444'
-        
-        filenames = get_openfilenames()
+        self.qtApp = QtApplication()
+        self.localDir = '.local'
+        self.localFilenames = []
     
-        if len(filenames) and askme_loadfiles():
-            for x in filenames: self.openfilenames.append(x)
-        
-            try:
-                count = create_dataframe(set(self.openfilenames), self.localfilename)
-            except:
-                message = 'Ocurrio un error al cargar los archivos'
-                self.tkapplication.status['text'] = message
-                self.tkapplication.status['background'] = '#f25252'
-            else:
-                self.openfilenames = [x for x in filenames]
-                
-                message = 'Se cargaron correctamente %s archivos' % count
-                self.tkapplication.status['text'] = message
-                self.tkapplication.status['background'] = '#444444'
 
-        else:
-            message = 'Error en la carga de archivos'
-            self.tkapplication.status['text'] = message
-            self.tkapplication.status['background'] = '#f25252'
+    def searchEvent(self):
+        # obtener valores desde el input
+        inputValues = self.qtApp.getSearchInput()
+        filteredValues = getValuesFromString(inputValues)
 
-
-    def search(self, event=None):
-        # obtener valores del cuadro de busqueda
-        search_string = self.tkapplication.search_entry.get()
-        search_values = get_values_from_string(search_string)
+        # obtener ruta del archivo elegido en la interfaz
+        currentFilename = self.qtApp.getCurrentFile()
 
         # busqueda principal de valores en dataset precargado
         try:
-            matches, not_matches = search_values_in_csv(search_values)
+            matches, notMatches = searchValuesOnCsv(
+                searchValues=filteredValues,
+                fileDir=self.localDir,
+                fileName=currentFilename
+            )
         except FileNotFoundError:
-            message = 'No hay archivos cargados para cotejar con los datos'
-            self.tkapplication.status['text'] = message
-            self.tkapplication.status['background'] = '#f25252'
+            statusMessage = 'No hay archivos cargados para cotejar con los datos'
+            self.qtApp.setStatus(message=statusMessage)
             return
 
         # actualizar mensaje del sistema
-        message = 'Buscados:%s - Encontrados:%s - No encontrados:%s'
-        message = message % (len(search_values),len(matches),len(not_matches))
-        
-        self.tkapplication.status['text'] = message
-        self.tkapplication.status['background'] = '#444444'
+        statusMessage = 'Buscados:%s - Encontrados:%s - No encontrados:%s'
+        statusMessage = statusMessage % (
+            len(filteredValues),len(matches),len(notMatches)
+        )
+        self.qtApp.setStatus(message=statusMessage)
+
 
         # presentacion en interfaz de resultados encontrados
-        self.tkapplication.insert_matches(*matches)
+        csvHeaders = getCsvHeaders(self.localDir, currentFilename)
+        self.qtApp.setMatchesHeaders(csvHeaders)
+        self.qtApp.setMatchesRows(*matches)
+
         # presentacion en interfaz de resultados no encontrados        
-        self.tkapplication.insert_notmatches(*not_matches)
+        self.qtApp.setNotMatchesRows(*notMatches)
+
+    def openFiles(self):
+        self.localFilenames = []
+
+        # actualizar mensajes de sistema
+        statusMessage = 'Cargar archivos Excel'
+        self.qtApp.setStatus(message=statusMessage)
+
+        filenames = getOpenFiles()
+        if len(filenames):
+            progressCount = 0
+            progressStep = 100 // len(filenames)
+
+            for i in filenames:
+                try:
+                    localFilePath = createDataFrame(i, self.localDir)
+                except:
+                    statusMessage = 'Ocurrio un error al cargar archivo'
+                    self.qtApp.setStatus(message=statusMessage)
+
+                else:
+                    self.localFilenames.append(localFilePath)
+                    filename = i.split('/')[-1]
+                    statusMessage = 'Archivo cargado correctamente: %s' % filename
+                    self.qtApp.setStatus(message=statusMessage)
+
+                    # barra de progreso
+                    self.qtApp.uiMainWindow.progressBar.show()
+                    progressCount = progressCount + progressStep
+                    self.qtApp.uiMainWindow.progressBar.setValue(progressCount)
+
+        else:
+            statusMessage = 'No se seleccionaron archivos para cargar'
+            self.qtApp.setStatus(message=statusMessage)
+            return
+        
+        self.qtApp.uiMainWindow.progressBar.hide() # ocultar barra de progreso
+
+        statusMessage = 'Se cargaron correctamente %s archivos' % len(self.localFilenames)
+        self.qtApp.setStatus(message=statusMessage)
+        self.loadLocalFiles()
 
 
 
-    def builder(self):
-        self.tkapplication.bt_open['command'] = self.openfiles
-        self.tkapplication.bt_search['command'] = self.search
-        self.tkapplication.bt_add['command'] = self.add_openfile
-        self.tkapplication.mainloop()
+
+    def loadLocalFiles(self):
+        # se busca en archivos locales para construir combobox
+        cachedFiles = listCsvFiles(self.localDir)
+        self.qtApp.setComboBoxItems(*cachedFiles)
+
+
+
+    def execute(self):
+        self.qtApp.uiMainWindow.btSearch.clicked.connect(self.searchEvent)
+        self.qtApp.uiMainWindow.btOpenFile.clicked.connect(self.openFiles)
+
+        self.loadLocalFiles()
+        
+        self.qtApp.appBuilder()
+        exit(self.qtApp.exec_())
+
+
 
 if __name__ == '__main__':
     app = Main()
-    app.builder()
+    app.execute()

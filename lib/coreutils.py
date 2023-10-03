@@ -1,79 +1,105 @@
 #!usr/bin/python3
 #-*- coding: utf-8 -*-
 
-from pandas import read_excel, DataFrame, concat
-from csv import reader
+from os import path
+from os import mkdir
+from os import listdir
+from pandas import DataFrame
+from pandas import read_excel
+from pandas import concat
 from re import findall
+from csv import reader
 
-LOCALFILENAME = '.application'
+def localDir(pathDir:str):
+    if not path.isdir(pathDir):
+        mkdir(pathDir)
 
 
-def is_excel_file(filepath:str) ->bool:
-    extension = filepath.split('.')[-1]
+def isExcelFile(filePath:str) ->bool:
+    extension = filePath.split('.')[-1]
     return extension == 'xlsx'
 
 
+def isCsvFile(filePath:str) ->bool:
+    extension = filePath.split('.')[-1]
+    return extension == 'csv'
 
-def create_dataframe(excel_files:iter, output_filename:str)->int:
+
+def listCsvFiles(pathDir:str):
+    localDir(pathDir=pathDir)
+    files = listdir(pathDir)
+    csvFiles = [x for x in files if isCsvFile(x)]
+    return csvFiles
+
+
+def createDataFrame(sourceFile:str, outputDir:str)->str:
     # Si el archivo no existe, crear un DataFrame vacío
-    df_csv = DataFrame()
+    dfCsv = DataFrame()
 
-    # Recorrer la lista de archivos Excel
-    loaded_files = 0
-    for excel in excel_files:
-        if is_excel_file(excel):
-            # Leer el archivo Excel sin incluir los encabezados
-            df_excel = read_excel(excel, header=None)
+    if isExcelFile(sourceFile):
+        # comprobar la existencia del directorio contenedor
+        localDir(outputDir)
 
-            # Agregar una columna con nombre de archivo correspondiente
-            filename = excel.split('/')[-1]
-            df_excel['archivo'] = filename
+        # Leer el archivo Excel sin incluir los encabezados
+        dfExcel = read_excel(sourceFile)
 
-            # Agregar las filas del archivo Excel al DataFrame del CSV
-            df_csv = concat([df_csv, df_excel], ignore_index=True)
-        loaded_files += 1
+        # Agregar una columna con nombre de archivo correspondiente
+        filename = sourceFile.split('/')[-1]
+        dfExcel['Archivo'] = filename
 
-    # Guardar el DataFrame resultante en el archivo CSV
-    df_csv.to_csv(LOCALFILENAME, index=False, encoding='utf-8')
-    return loaded_files
+        # Agregar las filas del archivo Excel al DataFrame del CSV
+        dfCsv = concat([dfCsv, dfExcel])
+
+        # Guardar el DataFrame resultante en el archivo CSV
+        filePath = path.join(outputDir, '%s.csv' %filename)
+        dfCsv.to_csv(filePath, index=False, encoding='utf-8')
+    
+    else: return False
+    return filePath
 
 
 
-
-def get_values_from_string(text:str) ->tuple:
+def getValuesFromString(text:str) ->list:
     # Utilizar expresión regular para buscar palabras
     values = findall(r'(?:(?<!\\)[\t\n\r\\]+|[^\t\n\r\\]+)', text)    
-    filtered_values = [x for x in set(values) if not '\n' in x]
-    return filtered_values
+    filteredValues = [x for x in set(values) if not '\n' in x]
+    return filteredValues
 
 
 
+def searchValuesOnCsv(searchValues:iter, fileDir:str, fileName:str):
+    # ruta relativa al archivo
+    filepath = path.join(fileDir, fileName)
 
-def search_values_in_csv(values_to_search:iter):
-    # inicializar la lista de resultados encontrados
-    matches = []
-    # inicializar la lista de resultados no encontrados
-    not_matches = []
+    matches = [] # inicializacion resultados encontrados    
+    notMatches = [] # inicializacion resultados no encontrados
 
-
-    with open(LOCALFILENAME, encoding='utf-8') as source_file:
-        csv_reader = reader(source_file)
+    with open(filepath, encoding='utf-8') as sourceFile:
+        csvReader = reader(sourceFile)
 
         # buscar los registros que aparecen
-        for reg in csv_reader:
+        for reg in csvReader:
             for value in reg:
-                if value in values_to_search:
+                if value in searchValues:
                     matches.append(reg)
 
     # buscar valores que no aparecen en la lista matches
-    for value in values_to_search:
+    for value in searchValues:
         flag = False
         for reg in matches:
             if value in reg:
                 flag = True
                 break
         if flag: flag = False
-        else: not_matches.append(value)
+        else: notMatches.append(value)
     
 
-    return matches, not_matches
+    return matches, notMatches
+
+
+def getCsvHeaders(fileDir:str, fileName:str):
+    filepath = path.join(fileDir, fileName)
+
+    with open(filepath, encoding='utf-8') as sourceFile:
+        csvReader = reader(sourceFile)
+        return csvReader.__next__()
