@@ -1,6 +1,7 @@
 #!usr/bin/python3
 #-*- coding: utf-8 -*-
 
+from sys import exit
 from lib.qtApplication import QtApplication
 from lib.popups import getOpenFiles
 from lib.coreutils import createDataFrame
