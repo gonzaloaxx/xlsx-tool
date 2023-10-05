@@ -18,7 +18,7 @@ class QtApplication(QApplication):
         self.app_version_file = 'version.txt'
 
         # inicio de ventana maximizado
-        self.qMainWindow.showMaximized()
+        #self.qMainWindow.showMaximized()
 
         # el titulo de la ventana se concatena con el numero de version
         windowName = self.qMainWindow.windowTitle()
@@ -51,6 +51,53 @@ class QtApplication(QApplication):
         self.hotkey2 = QShortcut(QKeySequence('Return'), self.qMainWindow)
         self.hotkey2.activated.connect(self.searchEventHotkey)
 
+        self.hotkey2 = QShortcut(QKeySequence('Ctrl+c'), self.qMainWindow)
+        self.hotkey2.activated.connect(self.copyEvent)
+
+
+    def copyEvent(self):
+        if self.uiMainWindow.notMatchList.hasFocus():
+            selectedIndexes = self.uiMainWindow.notMatchList.selectedIndexes()
+            if selectedIndexes:
+                selectedRows = list(set(index.row() for index in selectedIndexes))
+                selectedCols = list(set(index.column() for index in selectedIndexes))
+
+                clipboard = QApplication.clipboard()
+                clipboard.clear()
+                
+                copiedData = []
+                for row in selectedRows:
+                    rowData = []
+                    for col in selectedCols:
+                        item = self.uiMainWindow.notMatchList.item(row)
+                        if item:
+                            rowData.append(item.text())
+                        
+                        else:
+                            rowData.append('')
+                    copiedData.append('\t'.join(rowData))
+                clipboard.setText('\n'.join(copiedData))
+        
+        elif self.uiMainWindow.matchesTable.hasFocus():
+            selectedIndexes = self.uiMainWindow.matchesTable.selectedIndexes()
+            if selectedIndexes:
+                selectedRows = list(set(index.row() for index in selectedIndexes))
+                selectedCols = list(set(index.column() for index in selectedIndexes))
+
+                clipboard = QApplication.clipboard()
+                clipboard.clear()
+                
+                copiedData = []
+                for row in selectedRows:
+                    rowData = []
+                    for col in selectedCols:
+                        item = self.uiMainWindow.matchesTable.item(row, col)
+                        if item:
+                            rowData.append(item.text())
+                        else:
+                            rowData.append('')
+                    copiedData.append('; '.join(rowData))
+                clipboard.setText('\n'.join(copiedData))
 
 
     def searchEventHotkey(self):

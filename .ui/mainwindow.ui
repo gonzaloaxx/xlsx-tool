@@ -61,7 +61,7 @@ selection-color: rgb(255, 255, 255);
 </string>
          </property>
          <property name="selectionMode">
-          <enum>QAbstractItemView::ExtendedSelection</enum>
+          <enum>QAbstractItemView::MultiSelection</enum>
          </property>
          <item>
           <property name="text">
