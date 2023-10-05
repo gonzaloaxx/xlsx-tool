@@ -1,14 +1,15 @@
 #!usr/bin/python3
 #-*- coding: utf-8 -*-
 
-from sys import exit
-from lib.qtApplication import QtApplication
+from lib.qtapplication import QtApplication
 from lib.popups import getOpenFiles
-from lib.coreutils import createDataFrame
+from lib.coreutils import createDataFrame, deleteFiles
 from lib.coreutils import listCsvFiles
 from lib.coreutils import getValuesFromString
 from lib.coreutils import searchValuesOnCsv
 from lib.coreutils import getCsvHeaders
+from lib.coreutils import deleteFiles
+from sys import exit
 
 
 class Main():
@@ -95,8 +96,16 @@ class Main():
         statusMessage = 'Se cargaron correctamente %s archivos' % len(self.localFilenames)
         self.qtApp.setStatus(message=statusMessage)
         self.loadLocalFiles()
+    
 
+    def clearCache(self):
+        files = deleteFiles(self.localDir)
 
+        statusMessage = 'Se han eliminado %s archivos' % len(files)
+        self.qtApp.setStatus(message=statusMessage)
+        self.loadLocalFiles()
+
+        self.loadLocalFiles()
 
 
     def loadLocalFiles(self):
@@ -109,7 +118,7 @@ class Main():
     def execute(self):
         self.qtApp.uiMainWindow.btSearch.clicked.connect(self.searchEvent)
         self.qtApp.uiMainWindow.btOpenFile.clicked.connect(self.openFiles)
-
+        self.qtApp.uiMainWindow.btClear.clicked.connect(self.clearCache)
         self.loadLocalFiles()
         
         self.qtApp.appBuilder()

@@ -1,9 +1,7 @@
 #!usr/bin/python3
 #-*- coding: utf-8 -*-
 
-from os import path
-from os import mkdir
-from os import listdir
+from os import path, mkdir, listdir, remove
 from pandas import DataFrame
 from pandas import read_excel
 from pandas import concat
@@ -103,3 +101,9 @@ def getCsvHeaders(fileDir:str, fileName:str):
     with open(filepath, encoding='utf-8') as sourceFile:
         csvReader = reader(sourceFile)
         return csvReader.__next__()
+    
+
+def deleteFiles(pathDir:str):
+    files = listCsvFiles(pathDir=pathDir)
+    for i in files: remove(path.join(pathDir, i))
+    return files

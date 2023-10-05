@@ -72,6 +72,8 @@ class QtApplication(QApplication):
     
 
     def setComboBoxItems(self, *items):
+        self.uiMainWindow.selectFile.clear()
+        
         for i in items:
             self.uiMainWindow.selectFile.addItem(i)
 
