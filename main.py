@@ -35,7 +35,8 @@ class Main():
                 fileDir=self.localDir,
                 fileName=currentFilename
             )
-        except FileNotFoundError:
+        
+        except IsADirectoryError:
             statusMessage = 'No hay archivos cargados para cotejar con los datos'
             self.qtApp.setStatus(message=statusMessage)
             return
