@@ -57,6 +57,7 @@ class Main():
         # presentacion en interfaz de resultados no encontrados        
         self.qtApp.setNotMatchesRows(*notMatches)
 
+
     def openFiles(self):
         self.localFilenames = []
 
@@ -101,7 +102,6 @@ class Main():
 
     def clearCache(self):
         files = deleteFiles(self.localDir)
-
         statusMessage = 'Se han eliminado %s archivos' % len(files)
         self.qtApp.setStatus(message=statusMessage)
         self.loadLocalFiles()

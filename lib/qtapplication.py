@@ -18,7 +18,7 @@ class QtApplication(QApplication):
         self.app_version_file = 'version.txt'
 
         # inicio de ventana maximizado
-        #self.qMainWindow.showMaximized()
+        self.qMainWindow.showMaximized()
 
         # el titulo de la ventana se concatena con el numero de version
         windowName = self.qMainWindow.windowTitle()
@@ -53,6 +53,7 @@ class QtApplication(QApplication):
 
         self.hotkey2 = QShortcut(QKeySequence('Ctrl+c'), self.qMainWindow)
         self.hotkey2.activated.connect(self.copyEvent)
+
 
 
     def copyEvent(self):
@@ -100,23 +101,28 @@ class QtApplication(QApplication):
                 clipboard.setText('\n'.join(copiedData))
 
 
+
     def searchEventHotkey(self):
         if self.uiMainWindow.searchEntry.hasFocus():
             self.uiMainWindow.btSearch.click()
 
        
+
     def focusOnSearchHotkey(self):
         self.uiMainWindow.searchEntry.selectAll()
         self.uiMainWindow.searchEntry.setFocus()
+
 
 
     def getSearchInput(self):
         return self.uiMainWindow.searchEntry.text()
     
 
+
     def setStatus(self, message:str):
         self.uiMainWindow.statusLabel.setText(message)
     
+
 
     def setComboBoxItems(self, *items):
         self.uiMainWindow.selectFile.clear()
@@ -125,9 +131,11 @@ class QtApplication(QApplication):
             self.uiMainWindow.selectFile.addItem(i)
 
 
+
     def getCurrentFile(self):
         return self.uiMainWindow.selectFile.currentText()
     
+
 
 
     def setMatchesHeaders(self, *headers):
@@ -148,10 +156,12 @@ class QtApplication(QApplication):
                 self.uiMainWindow.matchesTable.setItem(rowIndex, columnIndex, item)
     
 
+
     def setNotMatchesRows(self, *rows):
         self.uiMainWindow.notMatchList.clear()
         for i in rows:
             self.uiMainWindow.notMatchList.addItem(i)
+
 
 
     def appBuilder(self):

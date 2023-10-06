@@ -25,13 +25,6 @@
   <property name="windowTitle">
    <string>XLSXTool</string>
   </property>
-  <property name="windowIcon">
-   <iconset>
-    <normaloff>../app.png</normaloff>../app.png</iconset>
-  </property>
-  <property name="layoutDirection">
-   <enum>Qt::LeftToRight</enum>
-  </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(255, 255, 255);</string>
   </property>
