@@ -465,6 +465,12 @@ selection-color: rgb(255, 255, 255);</string>
       <layout class="QGridLayout" name="gridLayout">
        <item row="0" column="0">
         <widget class="QLineEdit" name="searchEntry">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>40</height>
+          </size>
+         </property>
          <property name="toolTip">
           <string/>
          </property>
@@ -502,7 +508,7 @@ selection-color: rgb(255, 255, 255);
          <property name="maximumSize">
           <size>
            <width>120</width>
-           <height>16777215</height>
+           <height>40</height>
           </size>
          </property>
          <property name="text">
@@ -512,6 +518,12 @@ selection-color: rgb(255, 255, 255);
        </item>
        <item row="1" column="0">
         <widget class="QComboBox" name="selectFile">
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>40</height>
+          </size>
+         </property>
          <property name="styleSheet">
           <string notr="true">color: rgb(49, 49, 49);
 selection-color: rgb(49, 49, 49);</string>
@@ -549,7 +561,7 @@ selection-color: rgb(49, 49, 49);</string>
          <property name="maximumSize">
           <size>
            <width>40</width>
-           <height>16777215</height>
+           <height>40</height>
           </size>
          </property>
          <property name="text">
@@ -568,7 +580,7 @@ selection-color: rgb(49, 49, 49);</string>
          <property name="maximumSize">
           <size>
            <width>70</width>
-           <height>16777215</height>
+           <height>40</height>
           </size>
          </property>
          <property name="text">
