@@ -34,6 +34,9 @@ class QtApplication(QApplication):
         # reset a la tabla de resultados vacia
         self.uiMainWindow.matchesTable.setColumnCount(0)
         self.uiMainWindow.matchesTable.setRowCount(0)
+        self.uiMainWindow.matchesTable.horizontalHeader().sectionDoubleClicked.connect(
+            lambda section: self.uiMainWindow.matchesTable.resizeColumnToContents(section)
+        )
 
         # vaciar la lista de resultados no encontrados
         self.uiMainWindow.notMatchList.clear()
