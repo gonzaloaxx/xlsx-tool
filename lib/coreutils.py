@@ -71,6 +71,7 @@ def searchValuesOnCsv(searchValues:iter, fileDir:str, fileName:str):
     # ruta relativa al archivo
     filepath = path.join(fileDir, fileName)
 
+    searchValues = [x.lower() for x in searchValues]
     matches = [] # inicializacion resultados encontrados    
     notMatches = [] # inicializacion resultados no encontrados
 
@@ -80,7 +81,7 @@ def searchValuesOnCsv(searchValues:iter, fileDir:str, fileName:str):
         # buscar los registros que aparecen
         for reg in csvReader:
             for value in reg:
-                if value in searchValues:
+                if value.lower() in searchValues:
                     matches.append(reg)
 
     # buscar valores que no aparecen en la lista matches
