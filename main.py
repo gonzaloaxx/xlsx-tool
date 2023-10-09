@@ -40,6 +40,11 @@ class Main():
             statusMessage = 'No hay archivos cargados para cotejar con los datos'
             self.qtApp.setStatus(message=statusMessage)
             return
+        
+        except FileNotFoundError:
+            statusMessage = 'No hay archivos cargados para cotejar con los datos'
+            self.qtApp.setStatus(message=statusMessage)
+            return
 
         # actualizar mensaje del sistema
         statusMessage = 'Buscados:%s - Encontrados:%s - No encontrados:%s'
