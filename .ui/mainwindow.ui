@@ -28,10 +28,10 @@
   <property name="styleSheet">
    <string notr="true">background-color: rgb(255, 255, 255);</string>
   </property>
-  <widget class="QWidget" name="centralwidget">
+  <widget class="QWidget" name="main_frame">
    <layout class="QGridLayout" name="gridLayout_2">
     <item row="2" column="0">
-     <widget class="QFrame" name="contentFrame">
+     <widget class="QFrame" name="content_frame">
       <property name="frameShape">
        <enum>QFrame::NoFrame</enum>
       </property>
@@ -40,7 +40,7 @@
       </property>
       <layout class="QGridLayout" name="gridLayout_3">
        <item row="1" column="1">
-        <widget class="QListWidget" name="notMatchList">
+        <widget class="QListWidget" name="notmatch_list">
          <property name="maximumSize">
           <size>
            <width>120</width>
@@ -53,113 +53,19 @@ background-color: rgb(255, 255, 255);
 selection-color: rgb(255, 255, 255);
 </string>
          </property>
-         <property name="selectionMode">
-          <enum>QAbstractItemView::MultiSelection</enum>
+         <property name="frameShape">
+          <enum>QFrame::StyledPanel</enum>
          </property>
-         <item>
-          <property name="text">
-           <string>Nuevo elemento</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Nuevo elemento</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Nuevo elemento</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Nuevo elemento</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Nuevo elemento</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Nuevo elemento</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Nuevo elemento</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Nuevo elemento</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Nuevo elemento</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Nuevo elemento</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Nuevo elemento</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Nuevo elemento</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Nuevo elemento</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Nuevo elemento</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Nuevo elemento</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Nuevo elemento</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Nuevo elemento</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Nuevo elemento</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Nuevo elemento</string>
-          </property>
-         </item>
-         <item>
-          <property name="text">
-           <string>Nuevo elemento</string>
-          </property>
-         </item>
+         <property name="frameShadow">
+          <enum>QFrame::Sunken</enum>
+         </property>
+         <property name="selectionMode">
+          <enum>QAbstractItemView::ExtendedSelection</enum>
+         </property>
         </widget>
        </item>
        <item row="0" column="0">
-        <widget class="QLabel" name="matchesLabel">
+        <widget class="QLabel" name="match_label">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -182,7 +88,7 @@ background-color: rgb(49, 49, 49);</string>
         </widget>
        </item>
        <item row="0" column="1">
-        <widget class="QLabel" name="notMatchesLabel">
+        <widget class="QLabel" name="notmatch_label">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -211,7 +117,7 @@ background-color: rgb(49, 49, 49);</string>
         </widget>
        </item>
        <item row="1" column="0">
-        <widget class="QTableWidget" name="matchesTable">
+        <widget class="QTableWidget" name="match_table">
          <property name="styleSheet">
           <string notr="true">color: rgb(49, 49, 49);
 background-color: rgb(255, 255, 255);
@@ -226,173 +132,13 @@ selection-color: rgb(255, 255, 255);</string>
          <attribute name="verticalHeaderHighlightSections">
           <bool>false</bool>
          </attribute>
-         <row>
-          <property name="text">
-           <string>Nueva fila</string>
-          </property>
-         </row>
-         <row>
-          <property name="text">
-           <string>Nueva fila</string>
-          </property>
-         </row>
-         <row>
-          <property name="text">
-           <string>Nueva fila</string>
-          </property>
-         </row>
-         <row>
-          <property name="text">
-           <string>Nueva fila</string>
-          </property>
-         </row>
-         <row>
-          <property name="text">
-           <string>Nueva fila</string>
-          </property>
-         </row>
-         <row>
-          <property name="text">
-           <string>Nueva fila</string>
-          </property>
-         </row>
-         <row>
-          <property name="text">
-           <string>Nueva fila</string>
-          </property>
-         </row>
-         <row>
-          <property name="text">
-           <string>Nueva fila</string>
-          </property>
-         </row>
-         <row>
-          <property name="text">
-           <string>Nueva fila</string>
-          </property>
-         </row>
-         <row>
-          <property name="text">
-           <string>Nueva fila</string>
-          </property>
-         </row>
-         <row>
-          <property name="text">
-           <string>Nueva fila</string>
-          </property>
-         </row>
-         <row>
-          <property name="text">
-           <string>Nueva fila</string>
-          </property>
-         </row>
-         <row>
-          <property name="text">
-           <string>Nueva fila</string>
-          </property>
-         </row>
-         <row>
-          <property name="text">
-           <string>Nueva fila</string>
-          </property>
-         </row>
-         <row>
-          <property name="text">
-           <string>Nueva fila</string>
-          </property>
-         </row>
-         <row>
-          <property name="text">
-           <string>Nueva fila</string>
-          </property>
-         </row>
-         <row>
-          <property name="text">
-           <string>Nueva fila</string>
-          </property>
-         </row>
-         <column>
-          <property name="text">
-           <string>Nueva columna</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Nueva columna</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Nueva columna</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Nueva columna</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Nueva columna</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Nueva columna</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Nueva columna</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Nueva columna</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Nueva columna</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Nueva columna</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Nueva columna</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Nueva columna</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Nueva columna</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Nueva columna</string>
-          </property>
-         </column>
-         <column>
-          <property name="text">
-           <string>Nueva columna</string>
-          </property>
-         </column>
         </widget>
        </item>
       </layout>
      </widget>
     </item>
     <item row="0" column="0">
-     <widget class="QFrame" name="headerFrame">
+     <widget class="QFrame" name="header_frame">
       <property name="maximumSize">
        <size>
         <width>16777215</width>
@@ -407,7 +153,7 @@ selection-color: rgb(255, 255, 255);</string>
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_2">
        <item>
-        <widget class="QLabel" name="headerLabel">
+        <widget class="QLabel" name="header_label">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
            <horstretch>0</horstretch>
@@ -423,9 +169,8 @@ selection-color: rgb(255, 255, 255);</string>
          <property name="font">
           <font>
            <pointsize>10</pointsize>
-           <weight>75</weight>
            <italic>true</italic>
-           <bold>true</bold>
+           <bold>false</bold>
           </font>
          </property>
          <property name="styleSheet">
@@ -449,7 +194,7 @@ selection-color: rgb(255, 255, 255);</string>
      </widget>
     </item>
     <item row="1" column="0">
-     <widget class="QFrame" name="searchFrame">
+     <widget class="QFrame" name="search_frame">
       <property name="maximumSize">
        <size>
         <width>16777215</width>
@@ -464,7 +209,7 @@ selection-color: rgb(255, 255, 255);</string>
       </property>
       <layout class="QGridLayout" name="gridLayout">
        <item row="0" column="0">
-        <widget class="QLineEdit" name="searchEntry">
+        <widget class="QLineEdit" name="search_entry">
          <property name="maximumSize">
           <size>
            <width>16777215</width>
@@ -498,7 +243,7 @@ selection-color: rgb(255, 255, 255);
         </widget>
        </item>
        <item row="0" column="1" colspan="2">
-        <widget class="QPushButton" name="btSearch">
+        <widget class="QPushButton" name="search_button">
          <property name="minimumSize">
           <size>
            <width>120</width>
@@ -517,7 +262,7 @@ selection-color: rgb(255, 255, 255);
         </widget>
        </item>
        <item row="1" column="0">
-        <widget class="QComboBox" name="selectFile">
+        <widget class="QComboBox" name="selectfile_button">
          <property name="maximumSize">
           <size>
            <width>16777215</width>
@@ -551,7 +296,7 @@ selection-color: rgb(49, 49, 49);</string>
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QToolButton" name="btOpenFile">
+        <widget class="QToolButton" name="openfile_button">
          <property name="minimumSize">
           <size>
            <width>40</width>
@@ -570,7 +315,7 @@ selection-color: rgb(49, 49, 49);</string>
         </widget>
        </item>
        <item row="1" column="2">
-        <widget class="QPushButton" name="btClear">
+        <widget class="QPushButton" name="clear_button">
          <property name="minimumSize">
           <size>
            <width>70</width>
@@ -592,7 +337,7 @@ selection-color: rgb(49, 49, 49);</string>
      </widget>
     </item>
     <item row="3" column="0">
-     <widget class="QFrame" name="statusFrame">
+     <widget class="QFrame" name="status_frame">
       <property name="minimumSize">
        <size>
         <width>0</width>
@@ -625,7 +370,7 @@ selection-color: rgb(49, 49, 49);</string>
         <number>0</number>
        </property>
        <item>
-        <widget class="QLabel" name="statusLabel">
+        <widget class="QLabel" name="status_label">
          <property name="minimumSize">
           <size>
            <width>0</width>
@@ -647,7 +392,7 @@ selection-color: rgb(49, 49, 49);</string>
         </widget>
        </item>
        <item>
-        <widget class="QProgressBar" name="progressBar">
+        <widget class="QProgressBar" name="progressbar">
          <property name="minimumSize">
           <size>
            <width>120</width>
@@ -667,7 +412,7 @@ color: rgb(49, 49, 49);
 selection-color: rgb(255, 255, 255);</string>
          </property>
          <property name="value">
-          <number>80</number>
+          <number>0</number>
          </property>
         </widget>
        </item>
@@ -678,13 +423,13 @@ selection-color: rgb(255, 255, 255);</string>
   </widget>
  </widget>
  <tabstops>
-  <tabstop>searchEntry</tabstop>
-  <tabstop>btSearch</tabstop>
-  <tabstop>selectFile</tabstop>
-  <tabstop>btOpenFile</tabstop>
-  <tabstop>btClear</tabstop>
-  <tabstop>matchesTable</tabstop>
-  <tabstop>notMatchList</tabstop>
+  <tabstop>search_entry</tabstop>
+  <tabstop>search_button</tabstop>
+  <tabstop>selectfile_button</tabstop>
+  <tabstop>openfile_button</tabstop>
+  <tabstop>clear_button</tabstop>
+  <tabstop>match_table</tabstop>
+  <tabstop>notmatch_list</tabstop>
  </tabstops>
  <resources/>
  <connections/>
