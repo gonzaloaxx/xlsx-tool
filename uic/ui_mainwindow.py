@@ -88,6 +88,7 @@ class Ui_MainWindow(object):
         font.setPointSize(10)
         font.setBold(False)
         font.setItalic(True)
+        font.setWeight(50)
         self.header_label.setFont(font)
         self.header_label.setStyleSheet("")
         self.header_label.setAlignment(QtCore.Qt.AlignCenter)
@@ -111,6 +112,7 @@ class Ui_MainWindow(object):
 "background-color: rgb(255, 255, 255);\n"
 "selection-color: rgb(255, 255, 255);\n"
 "")
+        self.search_entry.setMaxLength(999999)
         self.search_entry.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.search_entry.setClearButtonEnabled(True)
         self.search_entry.setObjectName("search_entry")
@@ -193,3 +195,13 @@ class Ui_MainWindow(object):
         self.selectfile_button.setItemText(3, _translate("MainWindow", "Nuevo elemento4"))
         self.openfile_button.setText(_translate("MainWindow", "..."))
         self.clear_button.setText(_translate("MainWindow", "Limpiar"))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())
