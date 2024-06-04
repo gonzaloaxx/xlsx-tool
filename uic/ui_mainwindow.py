@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file '.ui/mainwindow.ui'
+# Form implementation generated from reading ui file 'src/mainwindow.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.10
 #
@@ -21,6 +21,9 @@ class Ui_MainWindow(object):
         sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
         MainWindow.setSizePolicy(sizePolicy)
         MainWindow.setMinimumSize(QtCore.QSize(700, 500))
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("src\\python.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        MainWindow.setWindowIcon(icon)
         MainWindow.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.main_frame = QtWidgets.QWidget(MainWindow)
         self.main_frame.setObjectName("main_frame")
@@ -34,6 +37,9 @@ class Ui_MainWindow(object):
         self.gridLayout_3.setObjectName("gridLayout_3")
         self.notmatch_list = QtWidgets.QListWidget(self.content_frame)
         self.notmatch_list.setMaximumSize(QtCore.QSize(120, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        self.notmatch_list.setFont(font)
         self.notmatch_list.setStyleSheet("color: rgb(49, 49, 49);\n"
 "background-color: rgb(255, 255, 255);\n"
 "selection-color: rgb(255, 255, 255);\n"
@@ -45,6 +51,10 @@ class Ui_MainWindow(object):
         self.gridLayout_3.addWidget(self.notmatch_list, 1, 1, 1, 1)
         self.match_label = QtWidgets.QLabel(self.content_frame)
         self.match_label.setMinimumSize(QtCore.QSize(0, 22))
+        font = QtGui.QFont()
+        font.setFamily("Comic Sans MS")
+        font.setPointSize(9)
+        self.match_label.setFont(font)
         self.match_label.setStyleSheet("color: rgb(255, 255, 255);\n"
 "background-color: rgb(49, 49, 49);")
         self.match_label.setAlignment(QtCore.Qt.AlignCenter)
@@ -53,12 +63,19 @@ class Ui_MainWindow(object):
         self.notmatch_label = QtWidgets.QLabel(self.content_frame)
         self.notmatch_label.setMinimumSize(QtCore.QSize(0, 22))
         self.notmatch_label.setMaximumSize(QtCore.QSize(120, 16777215))
+        font = QtGui.QFont()
+        font.setFamily("Comic Sans MS")
+        font.setPointSize(9)
+        self.notmatch_label.setFont(font)
         self.notmatch_label.setStyleSheet("color: rgb(255, 255, 255);\n"
 "background-color: rgb(49, 49, 49);")
         self.notmatch_label.setAlignment(QtCore.Qt.AlignCenter)
         self.notmatch_label.setObjectName("notmatch_label")
         self.gridLayout_3.addWidget(self.notmatch_label, 0, 1, 1, 1)
         self.match_table = QtWidgets.QTableWidget(self.content_frame)
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        self.match_table.setFont(font)
         self.match_table.setStyleSheet("color: rgb(49, 49, 49);\n"
 "background-color: rgb(255, 255, 255);\n"
 "selection-color: rgb(255, 255, 255);")
@@ -85,12 +102,14 @@ class Ui_MainWindow(object):
         self.header_label.setSizePolicy(sizePolicy)
         self.header_label.setMinimumSize(QtCore.QSize(0, 40))
         font = QtGui.QFont()
+        font.setFamily("Comic Sans MS")
         font.setPointSize(10)
         font.setBold(False)
-        font.setItalic(True)
+        font.setItalic(False)
         font.setWeight(50)
         self.header_label.setFont(font)
-        self.header_label.setStyleSheet("")
+        self.header_label.setStyleSheet("color: rgb(255, 255, 255);\n"
+"background-color: rgb(49, 49, 49);")
         self.header_label.setAlignment(QtCore.Qt.AlignCenter)
         self.header_label.setIndent(-1)
         self.header_label.setObjectName("header_label")
@@ -105,6 +124,10 @@ class Ui_MainWindow(object):
         self.gridLayout.setObjectName("gridLayout")
         self.search_entry = QtWidgets.QLineEdit(self.search_frame)
         self.search_entry.setMaximumSize(QtCore.QSize(16777215, 40))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        font.setPointSize(9)
+        self.search_entry.setFont(font)
         self.search_entry.setToolTip("")
         self.search_entry.setWhatsThis("")
         self.search_entry.setLayoutDirection(QtCore.Qt.LeftToRight)
@@ -114,16 +137,25 @@ class Ui_MainWindow(object):
 "")
         self.search_entry.setMaxLength(999999)
         self.search_entry.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.search_entry.setDragEnabled(True)
         self.search_entry.setClearButtonEnabled(True)
         self.search_entry.setObjectName("search_entry")
         self.gridLayout.addWidget(self.search_entry, 0, 0, 1, 1)
         self.search_button = QtWidgets.QPushButton(self.search_frame)
         self.search_button.setMinimumSize(QtCore.QSize(120, 0))
         self.search_button.setMaximumSize(QtCore.QSize(120, 40))
+        font = QtGui.QFont()
+        font.setFamily("Comic Sans MS")
+        self.search_button.setFont(font)
+        self.search_button.setAutoDefault(False)
+        self.search_button.setDefault(False)
         self.search_button.setObjectName("search_button")
         self.gridLayout.addWidget(self.search_button, 0, 1, 1, 2)
         self.selectfile_button = QtWidgets.QComboBox(self.search_frame)
         self.selectfile_button.setMaximumSize(QtCore.QSize(16777215, 40))
+        font = QtGui.QFont()
+        font.setFamily("Calibri")
+        self.selectfile_button.setFont(font)
         self.selectfile_button.setStyleSheet("color: rgb(49, 49, 49);\n"
 "selection-color: rgb(49, 49, 49);")
         self.selectfile_button.setObjectName("selectfile_button")
@@ -135,11 +167,17 @@ class Ui_MainWindow(object):
         self.openfile_button = QtWidgets.QToolButton(self.search_frame)
         self.openfile_button.setMinimumSize(QtCore.QSize(40, 0))
         self.openfile_button.setMaximumSize(QtCore.QSize(40, 40))
+        font = QtGui.QFont()
+        font.setFamily("Comic Sans MS")
+        self.openfile_button.setFont(font)
         self.openfile_button.setObjectName("openfile_button")
         self.gridLayout.addWidget(self.openfile_button, 1, 1, 1, 1)
         self.clear_button = QtWidgets.QPushButton(self.search_frame)
         self.clear_button.setMinimumSize(QtCore.QSize(70, 0))
         self.clear_button.setMaximumSize(QtCore.QSize(70, 40))
+        font = QtGui.QFont()
+        font.setFamily("Comic Sans MS")
+        self.clear_button.setFont(font)
         self.clear_button.setObjectName("clear_button")
         self.gridLayout.addWidget(self.clear_button, 1, 2, 1, 1)
         self.gridLayout_2.addWidget(self.search_frame, 1, 0, 1, 1)
@@ -162,6 +200,9 @@ class Ui_MainWindow(object):
         self.progressbar = QtWidgets.QProgressBar(self.status_frame)
         self.progressbar.setMinimumSize(QtCore.QSize(120, 20))
         self.progressbar.setMaximumSize(QtCore.QSize(120, 20))
+        font = QtGui.QFont()
+        font.setFamily("Comic Sans MS")
+        self.progressbar.setFont(font)
         self.progressbar.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "selection-background-color: rgb(49, 49, 49);\n"
 "color: rgb(49, 49, 49);\n"
@@ -195,13 +236,3 @@ class Ui_MainWindow(object):
         self.selectfile_button.setItemText(3, _translate("MainWindow", "Nuevo elemento4"))
         self.openfile_button.setText(_translate("MainWindow", "..."))
         self.clear_button.setText(_translate("MainWindow", "Limpiar"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec_())

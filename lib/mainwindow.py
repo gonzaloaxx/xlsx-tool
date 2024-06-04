@@ -11,6 +11,7 @@ from uic.ui_mainwindow import Ui_MainWindow
 class MainWindow(QApplication):
     def __init__(self):
         super().__init__([])
+        self.setStyle('Fusion')
 
         self.q_mainwindow = QMainWindow()
         self.ui_mainwindow = Ui_MainWindow()

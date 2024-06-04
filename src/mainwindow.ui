@@ -25,6 +25,10 @@
   <property name="windowTitle">
    <string>XLSXTool</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>python.png</normaloff>python.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(255, 255, 255);</string>
   </property>
@@ -46,6 +50,11 @@
            <width>120</width>
            <height>16777215</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+          </font>
          </property>
          <property name="styleSheet">
           <string notr="true">color: rgb(49, 49, 49);
@@ -71,6 +80,12 @@ selection-color: rgb(255, 255, 255);
            <width>0</width>
            <height>22</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Comic Sans MS</family>
+           <pointsize>9</pointsize>
+          </font>
          </property>
          <property name="styleSheet">
           <string notr="true">color: rgb(255, 255, 255);
@@ -101,6 +116,12 @@ background-color: rgb(49, 49, 49);</string>
            <height>16777215</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <family>Comic Sans MS</family>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
          <property name="styleSheet">
           <string notr="true">color: rgb(255, 255, 255);
 background-color: rgb(49, 49, 49);</string>
@@ -118,6 +139,11 @@ background-color: rgb(49, 49, 49);</string>
        </item>
        <item row="1" column="0">
         <widget class="QTableWidget" name="match_table">
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+          </font>
+         </property>
          <property name="styleSheet">
           <string notr="true">color: rgb(49, 49, 49);
 background-color: rgb(255, 255, 255);
@@ -168,14 +194,16 @@ selection-color: rgb(255, 255, 255);</string>
          </property>
          <property name="font">
           <font>
+           <family>Comic Sans MS</family>
            <pointsize>10</pointsize>
            <weight>50</weight>
-           <italic>true</italic>
+           <italic>false</italic>
            <bold>false</bold>
           </font>
          </property>
          <property name="styleSheet">
-          <string notr="true"/>
+          <string notr="true">color: rgb(255, 255, 255);
+background-color: rgb(49, 49, 49);</string>
          </property>
          <property name="text">
           <string>Herramienta para busquedas en datasets XLSX</string>
@@ -217,6 +245,12 @@ selection-color: rgb(255, 255, 255);</string>
            <height>40</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>9</pointsize>
+          </font>
+         </property>
          <property name="toolTip">
           <string/>
          </property>
@@ -237,6 +271,9 @@ selection-color: rgb(255, 255, 255);
          </property>
          <property name="alignment">
           <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+         </property>
+         <property name="dragEnabled">
+          <bool>true</bool>
          </property>
          <property name="placeholderText">
           <string>Puede pegar un segmento de una columna de la hoja de cálculo</string>
@@ -260,8 +297,19 @@ selection-color: rgb(255, 255, 255);
            <height>40</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <family>Comic Sans MS</family>
+          </font>
+         </property>
          <property name="text">
           <string>Buscar</string>
+         </property>
+         <property name="autoDefault">
+          <bool>false</bool>
+         </property>
+         <property name="default">
+          <bool>false</bool>
          </property>
         </widget>
        </item>
@@ -272,6 +320,11 @@ selection-color: rgb(255, 255, 255);
            <width>16777215</width>
            <height>40</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+          </font>
          </property>
          <property name="styleSheet">
           <string notr="true">color: rgb(49, 49, 49);
@@ -313,6 +366,11 @@ selection-color: rgb(49, 49, 49);</string>
            <height>40</height>
           </size>
          </property>
+         <property name="font">
+          <font>
+           <family>Comic Sans MS</family>
+          </font>
+         </property>
          <property name="text">
           <string>...</string>
          </property>
@@ -331,6 +389,11 @@ selection-color: rgb(49, 49, 49);</string>
            <width>70</width>
            <height>40</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Comic Sans MS</family>
+          </font>
          </property>
          <property name="text">
           <string>Limpiar</string>
@@ -408,6 +471,11 @@ selection-color: rgb(49, 49, 49);</string>
            <width>120</width>
            <height>20</height>
           </size>
+         </property>
+         <property name="font">
+          <font>
+           <family>Comic Sans MS</family>
+          </font>
          </property>
          <property name="styleSheet">
           <string notr="true">background-color: rgb(255, 255, 255);
